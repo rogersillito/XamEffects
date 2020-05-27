@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
+             mc:Ignorable=""
+             d:BindingContext="{Binding .}"
+             x:Name="ThisPage"
+             x:Class="XamExample.SimplifiedAccountsPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+
+            <ScrollView Orientation="Vertical" VerticalOptions="Center">
+                <StackLayout
+                    HorizontalOptions="Start"
+                    Padding="20"
+                    Spacing="10"
+                    Orientation="Vertical"
+                    BindableLayout.ItemsSource="{Binding Numbers}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+
+                            <!--
+                            -->
+                            <Frame 
+                                BorderColor="Fuchsia"
+                                xe:TouchEffect.Color="#DDDDDD"
+                                xe:Commands.Tap="{Binding Path=ParentItemCommand, Source={x:Reference ThisPage}}"
+                                xe:EffectsConfig.ChildrenInputTransparent="False"
+                                Padding="0"
+                                HasShadow="False">
+                                <StackLayout>
+                                    <BoxView
+                                        xe:Commands.Tap="{Binding Path=ChildItemCommand, Source={x:Reference ThisPage}}"
+                                        xe:Commands.TapParameter="{Binding .}"
+                                        WidthRequest="300"
+                                        HeightRequest="80"
+                                        BackgroundColor="Aquamarine">
+                                    </BoxView>
+                                    <Label
+                                        MaxLines="1"
+                                        Padding="5"
+                                        TextColor="Yellow"
+                                        FontAttributes="Bold"
+                                        Text="{Binding .}"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="End"
+                                        Opacity="0.6"
+                                        BackgroundColor="Black"/>
+                                </StackLayout>
+                            </Frame>
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

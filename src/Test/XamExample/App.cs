@@ -23,6 +23,11 @@ namespace XamExample {
                                 Text = "(XamExample - our modified demo)",
                                 Command = new Command(() => MainPage.Navigation.PushAsync(new SimpleDemoPage()))
                             },
+                            new Button
+                            {
+                                Text = "(Simplifed version of accounts page)",
+                                Command = new Command(() => MainPage.Navigation.PushAsync(new SimplifiedAccountsPage()))
+                            },
                         }
                     }
                 }
