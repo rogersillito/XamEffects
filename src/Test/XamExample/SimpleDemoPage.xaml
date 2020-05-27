@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns ="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
+    x:Class="XamExample.SimpleDemoPage">
+    <StackLayout
+          HeightRequest="120"
+          WidthRequest="200"
+          HorizontalOptions="Center"
+          VerticalOptions="Center"
+          Padding="5"
+          BackgroundColor="#CCCCCC"
+          xe:TouchEffect.Color="#E0E0E0"
+          x:Name="touch">
+        <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnTapped"></TapGestureRecognizer>
+        </StackLayout.GestureRecognizers>
+        <StackLayout
+            VerticalOptions="FillAndExpand" 
+            BackgroundColor="White">
+            <Label x:Name="text"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Margin="15,15"
+                   Text="0"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
